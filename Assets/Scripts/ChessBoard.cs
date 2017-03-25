@@ -16,14 +16,14 @@ public class ChessBoard : MonoBehaviour {
 	public GameObject whiteQueen;
 	public GameObject whiteKing;
 
-//	// black pieces
-//	public GameObject blackPawn;
-//	public GameObject whiteRook;
-//	public GameObject whiteKnight;
-//	public GameObject whiteBishop;
-//	public GameObject whiteQueen;
-//	public GameObject whiteKing;
-//
+	// black pieces
+	public GameObject blackPawn;
+	public GameObject blackRook;
+	public GameObject blackKnight;
+	public GameObject blackBishop;
+	public GameObject blackQueen;
+	public GameObject blackKing;
+
 	private float x, y, z;
 	private List<GameObject> boardSquares;
 	private const int SCALE_FACTOR = 2;
@@ -81,71 +81,49 @@ public class ChessBoard : MonoBehaviour {
 
 	}
 
-//	void Pieces() {
-//		for (int i = 1; i <= 8; i++) {
-//			for (char j = 'a'; j <= 'h'; j++) {
-//				if (i == 1) {
-//					if (j == 'a' || j == 'h') {
-//						// white rook
-//						GameObject wRook = (GameObject)Instantiate(whiteRook, new Vector3(
-//					} else if (j == 'b' || j == 'g') {
-//						// white knight
-//					} else if (j == 'c' || j == 'f') {
-//						// white bishop
-//					} else if (j == 'd') {
-//						// white queen
-//					} else {
-//						// white king 
-//					}
-//				} else if (i == 2) {
-//					// white pawn
-//				} else if (i == 7) {
-//					// black pawn
-//				} else if (i == 8) {
-//					if (j == 'a' || j == 'h') {
-//						// black rook
-//					} else if (j == 'b' || j == 'g') {
-//						// black knight
-//					} else if (j == 'c' || j == 'f') {
-//						// black bishop
-//					} else if (j == 'd') {
-//						// black king
-//					} else {
-//						// black queen
-//					}
-//				}
-//			}
-//		}
-//	}
-
 	void Pieces(List<GameObject> boardSquares) {
 
 		for (int i = 0; i < boardSquares.Count; i++) {
 
 			GameObject b = boardSquares [i];
 
-			float newX = b.GetComponent<Square> ().transform.position.x + 1.0f;
+			float newX = b.GetComponent<Square> ().transform.position.x;
 			float newY = 1.65f;
-			float newZ = b.GetComponent<Square> ().transform.position.z - 1.0f;
-
-			if (b.GetComponent<Square>().RowID > 4) {
-				newX = boardSquares [i].GetComponent<Square> ().transform.position.x - 1.0f;
-			}
-//			if (b.GetComponent<Square>().ColID > 'd') {
-//				newZ = 
-		
-			if ((b.GetComponent<Square> ().ColID == 'a' || b.GetComponent<Square> ().ColID == 'h') && b.GetComponent<Square> ().RowID == 1) {
-				GameObject wRook = (GameObject)Instantiate (whiteRook, new Vector3 (newX, newY, newZ), transform.rotation);
-			} else if ((b.GetComponent<Square> ().ColID == 'b' || b.GetComponent<Square> ().ColID == 'g') && b.GetComponent<Square> ().RowID == 1) {
-				GameObject wKnight = (GameObject)Instantiate (whiteKnight, new Vector3 (newX, newY, newZ), transform.rotation);
-			} else if ((b.GetComponent<Square> ().ColID == 'c' || b.GetComponent<Square> ().ColID == 'f') && b.GetComponent<Square> ().RowID == 1) {
-				GameObject wBishop = (GameObject)Instantiate (whiteBishop, new Vector3 (newX, newY, newZ), transform.rotation);
-			} else if (b.GetComponent<Square> ().ColID == 'd' && b.GetComponent<Square> ().RowID == 1) {
-				GameObject wQueen = (GameObject)Instantiate (whiteQueen, new Vector3 (newX, newY, newZ), transform.rotation);
-			} else if (b.GetComponent<Square> ().ColID == 'e' && b.GetComponent<Square> ().RowID == 1) {
-				GameObject wKing = (GameObject)Instantiate (whiteKing, new Vector3 (newX, newY, newZ), transform.rotation);
+			float newZ = b.GetComponent<Square> ().transform.position.z;
+			if ((b.GetComponent<Square> ().ColID == 'a' || b.GetComponent<Square> ().ColID == 'h') && (b.GetComponent<Square> ().RowID == 1 || b.GetComponent<Square>().RowID == 8)) {
+				if (b.GetComponent<Square>().RowID == 1) {
+					GameObject wRook = (GameObject)Instantiate (whiteRook, new Vector3 (newX, newY, newZ), transform.rotation);
+				} else {
+					GameObject bRook = (GameObject)Instantiate (blackRook, new Vector3 (newX, newY, newZ), transform.rotation);
+				}
+			} else if ((b.GetComponent<Square> ().ColID == 'b' || b.GetComponent<Square> ().ColID == 'g') && (b.GetComponent<Square> ().RowID == 1 || b.GetComponent<Square>().RowID == 8)) {
+				if (b.GetComponent<Square>().RowID == 1) {
+					GameObject wKnight = (GameObject)Instantiate (whiteKnight, new Vector3 (newX, newY, newZ), transform.rotation);
+				} else {
+					GameObject bKnight = (GameObject)Instantiate (blackKnight, new Vector3 (newX, newY, newZ), transform.rotation);
+				}
+			} else if ((b.GetComponent<Square> ().ColID == 'c' || b.GetComponent<Square> ().ColID == 'f') && (b.GetComponent<Square> ().RowID == 1 || b.GetComponent<Square>().RowID == 8)) {
+				if (b.GetComponent<Square>().RowID == 1) {
+					GameObject wBishop = (GameObject)Instantiate (whiteBishop, new Vector3 (newX, newY, newZ), transform.rotation);
+				} else {
+					GameObject bBishop = (GameObject)Instantiate (blackBishop, new Vector3 (newX, newY, newZ), transform.rotation);
+				}
+			} else if ((b.GetComponent<Square> ().ColID == 'd') && (b.GetComponent<Square> ().RowID == 1 || b.GetComponent<Square>().RowID == 8)) {
+				if (b.GetComponent<Square>().RowID == 1) {
+					GameObject wQueen = (GameObject)Instantiate (whiteQueen, new Vector3 (newX, newY, newZ), transform.rotation);
+				} else {
+					GameObject bKing = (GameObject)Instantiate (blackKing, new Vector3 (newX, newY, newZ), transform.rotation);
+				}
+			} else if ((b.GetComponent<Square> ().ColID == 'e') && (b.GetComponent<Square> ().RowID == 1 || b.GetComponent<Square>().RowID == 8)) {
+				if (b.GetComponent<Square>().RowID == 1) {
+					GameObject wKing = (GameObject)Instantiate (whiteKing, new Vector3 (newX, newY, newZ), transform.rotation);
+				} else {
+					GameObject bQueen = (GameObject)Instantiate (blackQueen, new Vector3 (newX, newY, newZ), transform.rotation);
+				}
 			} else if (b.GetComponent<Square> ().RowID == 2) {
 				GameObject wPawn = (GameObject)Instantiate (whitePawn, new Vector3 (newX, newY, newZ), transform.rotation);
+			} else if (b.GetComponent<Square> ().RowID == 7) {
+				GameObject bPawn = (GameObject)Instantiate (blackPawn, new Vector3 (newX, newY, newZ), transform.rotation);
 			}
 		}
 	}
