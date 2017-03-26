@@ -8,6 +8,9 @@ public class ChessBoard : MonoBehaviour {
 	public GameObject squareWhite;
 	public GameObject squareBlack;
 
+	public GameObject player1;
+	public GameObject player2;
+
 	// white pieces
 	public GameObject whitePawn;
 	public GameObject whiteRook;
@@ -28,6 +31,10 @@ public class ChessBoard : MonoBehaviour {
 	private List<GameObject> boardSquares;
 	private const int SCALE_FACTOR = 2;
 	private const int BOARD_OFFSET = 8;		// number cols * scale / 2
+	private GameObject currentPlayer;
+	private string color;
+	private Vector3 screenPoint;	// where clicked
+	private Vector3 offset;
 
 	// Use this for initialization
 	void Start (){
@@ -50,8 +57,10 @@ public class ChessBoard : MonoBehaviour {
 				GameObject squareGameObject;
 				if ((col % 2) == switchInitColor) {
 					squareGameObject = (GameObject)Instantiate (squareWhite, new Vector3 (x, y, z), transform.rotation);
+					squareGameObject.transform.parent = this.transform;
 				} else {
 					squareGameObject = (GameObject)Instantiate (squareBlack, new Vector3 (x, y, z), transform.rotation);
+					squareGameObject.transform.parent = this.transform;
 				}
 
 				boardSquares.Add (squareGameObject);
@@ -73,7 +82,7 @@ public class ChessBoard : MonoBehaviour {
 
 		Pieces (boardSquares);
 
-		TakeTurns (false, 1);
+		//TakeTurns (false, 1);
 	}
 
 	// Update is called once per frame
@@ -88,7 +97,7 @@ public class ChessBoard : MonoBehaviour {
 			GameObject b = boardSquares [i];
 
 			float newX = b.GetComponent<Square> ().transform.position.x;
-			float newY = 1.65f;
+			float newY = 1.2f;
 			float newZ = b.GetComponent<Square> ().transform.position.z;
 			if ((b.GetComponent<Square> ().ColID == 'a' || b.GetComponent<Square> ().ColID == 'h') && (b.GetComponent<Square> ().RowID == 1 || b.GetComponent<Square>().RowID == 8)) {
 				if (b.GetComponent<Square>().RowID == 1) {
@@ -128,19 +137,26 @@ public class ChessBoard : MonoBehaviour {
 		}
 	}
 
-	void TakeTurns (bool gameover, int turn) {
-		while (gameover == false) {
-			if (turn % 2 != 0) {
-				// white turn
-				Camera.main.transform.position = new Vector3(11.0f, 12.0f, -12.0f);
-				Camera.main.transform.rotation = Quaternion.Euler (45.0f, 0.0f, 0.0f);
-			} else if (turn % 2 == 0) {
-				// black turn
-				Camera.main.transform.position = new Vector3(9.0f, 12.0f, 13.0f);
-				Camera.main.transform.rotation = Quaternion.Euler (45.0f, 180.0f, 0.0f);
-			}
-			turn++;
-			gameover = true;
-		}
-	}
+//	void TakeTurns (bool gameover, int turn) {
+//
+//		while (gameover == false) {
+//			if (turn % 2 != 0) {
+//				// white turn
+//				currentPlayer = player1;
+//				color = "white";
+//				Camera.main.transform.position = new Vector3(11.0f, 12.0f, -12.0f);
+//				Camera.main.transform.rotation = Quaternion.Euler (45.0f, 0.0f, 0.0f);
+//			} else if (turn % 2 == 0) {
+//				// black turn
+//				currentPlayer = player2;
+//				color = "black";
+//				Camera.main.transform.position = new Vector3(9.0f, 12.0f, 13.0f);
+//				Camera.main.transform.rotation = Quaternion.Euler (45.0f, 180.0f, 0.0f);
+//			}
+//			turn++;
+//			gameover = true;
+//		}
+//	}
+		
+
 }
