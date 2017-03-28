@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 
 public class ChessBoard : MonoBehaviour {
@@ -27,6 +28,9 @@ public class ChessBoard : MonoBehaviour {
 	public GameObject blackQueen;
 	public GameObject blackKing;
 
+
+	public GameObject manager;
+
 	private float x, y, z;
 	private List<GameObject> boardSquares;
 	private const int SCALE_FACTOR = 2;
@@ -38,6 +42,9 @@ public class ChessBoard : MonoBehaviour {
 
 	// Use this for initialization
 	void Start (){
+
+//		manager.GetComponent<NetworkManagerHUD> ().showGUI = false;
+
 		x = 0f;
 		y = 1f;
 		z = 0f;
