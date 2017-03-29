@@ -1,40 +1,26 @@
 fileFormatVersion: 2
 guid: 0def0e01a12d54af8804cac63e63a031
-timeCreated: 1490753071
+timeCreated: 1490753958
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
   defaultReferences:
-  - squareWhite: {fileID: 1763476097385698, guid: 1443bbc1fb0e04e60bb63184cd62f36d,
-      type: 2}
-  - squareBlack: {fileID: 1866224819533586, guid: 01aaabbcff8c7409a883c20b94a8818e,
-      type: 2}
-  - player1: {fileID: 1167450799736246, guid: 7c73ae8576c734115ac972af92afca3f, type: 2}
-  - player2: {fileID: 1167450799736246, guid: 7c73ae8576c734115ac972af92afca3f, type: 2}
-  - whitePawn: {fileID: 1054755637188300, guid: 59e2837625e13460c903bfc8e93ab995,
-      type: 2}
-  - whiteRook: {fileID: 1565816387250550, guid: 21ae281d6ac3d42f28f392a12b81e19d,
-      type: 2}
-  - whiteKnight: {fileID: 1077113472030060, guid: d1c4622c3b4e74437b2255f276dcafd2,
-      type: 2}
-  - whiteBishop: {fileID: 1528732088801676, guid: 57425d442074947d185d3271b13a9515,
-      type: 2}
-  - whiteQueen: {fileID: 1147714477689854, guid: 5fd5a1d64a7d5461ba566adf8baabd0c,
-      type: 2}
-  - whiteKing: {fileID: 1365724159277492, guid: d71a151a0f9094a10897bf0b7318aac1,
-      type: 2}
-  - blackPawn: {fileID: 1065257397139452, guid: 33ca395221a214e5fba174287534d5ff,
-      type: 2}
-  - blackRook: {fileID: 1262101719261146, guid: 3e72af438cb6a4e208bc2610e539b346,
-      type: 2}
-  - blackKnight: {fileID: 1159864205482372, guid: 7cc0a7f556ef540aa82586c9be9b7dd3,
-      type: 2}
-  - blackBishop: {fileID: 1839275418309086, guid: f8c9b4858ccf2465590ea4a5a96a70c6,
-      type: 2}
-  - blackQueen: {fileID: 1769215616951270, guid: 4bf80c0374c9d42df8d15f32e081bf48,
-      type: 2}
-  - blackKing: {fileID: 1964695524075608, guid: 41f0d7eb18e6140efb39a6dd7cd3f11f,
-      type: 2}
+  - squareWhite: {instanceID: 0}
+  - squareBlack: {instanceID: 0}
+  - player1: {instanceID: 0}
+  - player2: {instanceID: 0}
+  - whitePawn: {instanceID: 0}
+  - whiteRook: {instanceID: 0}
+  - whiteKnight: {instanceID: 0}
+  - whiteBishop: {instanceID: 0}
+  - whiteQueen: {instanceID: 0}
+  - whiteKing: {instanceID: 0}
+  - blackPawn: {instanceID: 0}
+  - blackRook: {instanceID: 0}
+  - blackKnight: {instanceID: 0}
+  - blackBishop: {instanceID: 0}
+  - blackQueen: {instanceID: 0}
+  - blackKing: {instanceID: 0}
   - manager: {instanceID: 0}
   - currentPlayer: {instanceID: 0}
   executionOrder: 0

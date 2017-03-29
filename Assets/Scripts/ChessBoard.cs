@@ -111,10 +111,8 @@ public class ChessBoard : MonoBehaviour {
 			if ((b.GetComponent<Square> ().ColID == 'a' || b.GetComponent<Square> ().ColID == 'h') && (b.GetComponent<Square> ().RowID == 1 || b.GetComponent<Square>().RowID == 8)) {
 				if (b.GetComponent<Square>().RowID == 1) {
 					GameObject wRook = (GameObject)Instantiate (whiteRook, new Vector3 (newX, newY, newZ), transform.rotation);
-//					wRook.GetComponent<Pieces>().startPos = new Vector3 (newX, newY, newZ);
 				} else {
 					GameObject bRook = (GameObject)Instantiate (blackRook, new Vector3 (newX, newY, newZ), transform.rotation);
-//					bRook.GetComponent<Pieces>().startPos = new Vector3 (newX, newY, newZ);
 				}
 			} else if ((b.GetComponent<Square> ().ColID == 'b' || b.GetComponent<Square> ().ColID == 'g') && (b.GetComponent<Square> ().RowID == 1 || b.GetComponent<Square>().RowID == 8)) {
 				if (b.GetComponent<Square>().RowID == 1) {

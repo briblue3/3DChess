@@ -17,6 +17,8 @@ public class Pieces : MonoBehaviour {
 	public string endSquare;
 	public PieceType Type;
 	public PieceColor Color;
+	public char col;
+	public int row;
 
 	void OnMouseDown(){
 		this.GetComponent<BoxCollider> ().enabled = false;
@@ -58,7 +60,7 @@ public class Pieces : MonoBehaviour {
 	}
 
 	public void setSquare(char col, int row) {
-		this.startSquare = col.ToString () + row.ToString ();
-		Debug.Log (startSquare);
+		this.col = col;
+		this.row = row;
 	}
 }
