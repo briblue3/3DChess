@@ -8,6 +8,8 @@ public class PlayerController : NetworkBehaviour {
 	public string playerID;
 	public int score;
 
+	private bool movedLogged = false;
+
 	// Use this for initialization
 	void Start () {
 		if (!isServer) {
@@ -33,5 +35,12 @@ public class PlayerController : NetworkBehaviour {
 		} else if (capturedPiece == "queen") {
 			score += 9;
 		}
+	}
+
+	public bool hasMoved(){
+//		while (movedLogged == false) {
+//			
+//		}
+		return true;
 	}
 }

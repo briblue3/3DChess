@@ -35,13 +35,15 @@ public class ChessBoard : MonoBehaviour {
 	private List<GameObject> boardSquares;
 	private const int SCALE_FACTOR = 2;
 	private const int BOARD_OFFSET = 8;		// number cols * scale / 2
-	private GameObject currentPlayer;
-	private string color;
+
+	public GameObject currentPlayer;
+	public string color;
+
 	private Vector3 screenPoint;	// where clicked
 	private Vector3 offset;
 
 	// Use this for initialization
-	void Start (){
+	public void Start (){
 
 //		manager.GetComponent<NetworkManagerHUD> ().showGUI = false;
 
@@ -97,7 +99,7 @@ public class ChessBoard : MonoBehaviour {
 
 	}
 
-	void Pieces(List<GameObject> boardSquares) {
+	public void Pieces(List<GameObject> boardSquares) {
 
 		for (int i = 0; i < boardSquares.Count; i++) {
 
@@ -144,26 +146,32 @@ public class ChessBoard : MonoBehaviour {
 		}
 	}
 
-//	void TakeTurns (bool gameover, int turn) {
-//
-//		while (gameover == false) {
-//			if (turn % 2 != 0) {
-//				// white turn
-//				currentPlayer = player1;
-//				color = "white";
-//				Camera.main.transform.position = new Vector3(11.0f, 12.0f, -12.0f);
-//				Camera.main.transform.rotation = Quaternion.Euler (45.0f, 0.0f, 0.0f);
-//			} else if (turn % 2 == 0) {
-//				// black turn
-//				currentPlayer = player2;
-//				color = "black";
-//				Camera.main.transform.position = new Vector3(9.0f, 12.0f, 13.0f);
-//				Camera.main.transform.rotation = Quaternion.Euler (45.0f, 180.0f, 0.0f);
-//			}
-//			turn++;
-//			gameover = true;
-//		}
-//	}
+	public void TakeTurns (bool gameover, int turn) {
+
+		while (gameover == false) {
+			bool logged = false;
+			if (turn % 2 != 0) {
+				// white turn
+				currentPlayer = player1;
+				color = "white";
+				Camera.main.transform.position = new Vector3(11.0f, 12.0f, -12.0f);
+				Camera.main.transform.rotation = Quaternion.Euler (45.0f, 0.0f, 0.0f);
+				while (currentPlayer.GetComponent<PlayerController> ().hasMoved () == false) {
+					if (currentPlayer.GetComponent<PlayerController> ().hasMoved () == true) {
+						break;
+					}
+				}
+			} else if (turn % 2 == 0) {
+				// black turn
+				currentPlayer = player2;
+				color = "black";
+				Camera.main.transform.position = new Vector3(9.0f, 12.0f, 13.0f);
+				Camera.main.transform.rotation = Quaternion.Euler (45.0f, 180.0f, 0.0f);
+			}
+			turn++;
+			gameover = true;
+		}
+	}
 		
 
 }

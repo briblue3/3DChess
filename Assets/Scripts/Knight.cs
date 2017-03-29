@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
+using UnityEngine.EventSystems;
 
 public class Knight : MonoBehaviour {
 
@@ -10,6 +12,8 @@ public class Knight : MonoBehaviour {
 
 	public string startSquare;
 	public string endSquare;
+
+	public ChessBoard board;
 
 	// Use this for initialization
 	void Start () {
@@ -22,9 +26,11 @@ public class Knight : MonoBehaviour {
 	}
 
 	void OnMouseDown(){
-		this.GetComponent<BoxCollider> ().enabled = false;
-		Vector3 mouse = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Input.mousePosition.z);
-		offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(mouse);
+		if (Network.isServer && board.currentPlayer.name == "white") {
+			this.GetComponent<BoxCollider> ().enabled = false;
+			Vector3 mouse = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Input.mousePosition.z);
+			offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(mouse);
+		}
 	}
 
 	void OnMouseDrag() {
@@ -75,6 +81,7 @@ public class Knight : MonoBehaviour {
 		}
 		this.transform.position = new Vector3 (posX, y, posZ);
 		Debug.Log (posX.ToString() + " " + posZ.ToString());
+		board.currentPlayer.GetComponent<PlayerController> ().hasMoved ().Equals(true);
 	}
 
 	public void setSquare(char col, int row) {

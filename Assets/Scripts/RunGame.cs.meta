@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 325a80176c74a47e39e88a325428ea60
+timeCreated: 1490742250
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - board: {fileID: 1999064760109542, guid: 5fe135958dec0467bb69ce046fa4f551, type: 2}
+  - chess: {instanceID: 0}
+  - canvasPrefab: {fileID: 223023983664267304, guid: 7338fcd8e2ff944be89dd631d2b525a8,
+      type: 2}
+  - canvas: {instanceID: 0}
+  - log: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
