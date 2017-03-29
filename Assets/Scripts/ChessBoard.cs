@@ -111,37 +111,49 @@ public class ChessBoard : MonoBehaviour {
 			if ((b.GetComponent<Square> ().ColID == 'a' || b.GetComponent<Square> ().ColID == 'h') && (b.GetComponent<Square> ().RowID == 1 || b.GetComponent<Square>().RowID == 8)) {
 				if (b.GetComponent<Square>().RowID == 1) {
 					GameObject wRook = (GameObject)Instantiate (whiteRook, new Vector3 (newX, newY, newZ), transform.rotation);
+//					wRook.GetComponent<Pieces>().startPos = new Vector3 (newX, newY, newZ);
 				} else {
 					GameObject bRook = (GameObject)Instantiate (blackRook, new Vector3 (newX, newY, newZ), transform.rotation);
+//					bRook.GetComponent<Pieces>().startPos = new Vector3 (newX, newY, newZ);
 				}
 			} else if ((b.GetComponent<Square> ().ColID == 'b' || b.GetComponent<Square> ().ColID == 'g') && (b.GetComponent<Square> ().RowID == 1 || b.GetComponent<Square>().RowID == 8)) {
 				if (b.GetComponent<Square>().RowID == 1) {
 					GameObject wKnight = (GameObject)Instantiate (whiteKnight, new Vector3 (newX, newY, newZ), transform.rotation);
+//					wKnight.GetComponent<Pieces>().startPos = new Vector3 (newX, newY, newZ);
 				} else {
 					GameObject bKnight = (GameObject)Instantiate (blackKnight, new Vector3 (newX, newY, newZ), transform.rotation);
+//					bKnight.GetComponent<Pieces>().startPos = new Vector3 (newX, newY, newZ);
 				}
 			} else if ((b.GetComponent<Square> ().ColID == 'c' || b.GetComponent<Square> ().ColID == 'f') && (b.GetComponent<Square> ().RowID == 1 || b.GetComponent<Square>().RowID == 8)) {
 				if (b.GetComponent<Square>().RowID == 1) {
 					GameObject wBishop = (GameObject)Instantiate (whiteBishop, new Vector3 (newX, newY, newZ), transform.rotation);
+//					wBishop.GetComponent<Pieces>().startPos = new Vector3 (newX, newY, newZ);
 				} else {
 					GameObject bBishop = (GameObject)Instantiate (blackBishop, new Vector3 (newX, newY, newZ), transform.rotation);
+//					bBishop.GetComponent<Pieces>().startPos = new Vector3 (newX, newY, newZ);
 				}
 			} else if ((b.GetComponent<Square> ().ColID == 'd') && (b.GetComponent<Square> ().RowID == 1 || b.GetComponent<Square>().RowID == 8)) {
 				if (b.GetComponent<Square>().RowID == 1) {
 					GameObject wQueen = (GameObject)Instantiate (whiteQueen, new Vector3 (newX, newY, newZ), transform.rotation);
+//					wQueen.GetComponent<Pieces>().startPos = new Vector3 (newX, newY, newZ);
 				} else {
 					GameObject bKing = (GameObject)Instantiate (blackKing, new Vector3 (newX, newY, newZ), transform.rotation);
+//					bKing.GetComponent<Pieces>().startPos = new Vector3 (newX, newY, newZ);
 				}
 			} else if ((b.GetComponent<Square> ().ColID == 'e') && (b.GetComponent<Square> ().RowID == 1 || b.GetComponent<Square>().RowID == 8)) {
 				if (b.GetComponent<Square>().RowID == 1) {
 					GameObject wKing = (GameObject)Instantiate (whiteKing, new Vector3 (newX, newY, newZ), transform.rotation);
+//					wKing.GetComponent<Pieces>().startPos = new Vector3 (newX, newY, newZ);
 				} else {
 					GameObject bQueen = (GameObject)Instantiate (blackQueen, new Vector3 (newX, newY, newZ), transform.rotation);
+//					bQueen.GetComponent<Pieces>().startPos = new Vector3 (newX, newY, newZ);
 				}
 			} else if (b.GetComponent<Square> ().RowID == 2) {
 				GameObject wPawn = (GameObject)Instantiate (whitePawn, new Vector3 (newX, newY, newZ), transform.rotation);
+//				wPawn.GetComponent<Pieces>().startPos = new Vector3 (newX, newY, newZ);
 			} else if (b.GetComponent<Square> ().RowID == 7) {
 				GameObject bPawn = (GameObject)Instantiate (blackPawn, new Vector3 (newX, newY, newZ), transform.rotation);
+//				bPawn.GetComponent<Pieces>().startPos = new Vector3 (newX, newY, newZ);
 			}
 		}
 	}
