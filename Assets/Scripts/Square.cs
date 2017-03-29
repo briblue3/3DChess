@@ -9,6 +9,7 @@ public class Square : MonoBehaviour {
 	public int RowID { get; set; }		// get & set make these class properties and not just random public variables
 	public char ColID { get; set; }
 	public bool mouseDown = false;
+	public bool hasPiece;
 
 	// private GamePiece currentGamePiece
 
@@ -22,7 +23,7 @@ public class Square : MonoBehaviour {
 		
 	}
 
-	void OnTriggerEnter(Collider piece) {
+	public void OnTriggerEnter(Collider piece) {
 		if (!Input.GetMouseButtonDown (0) && !Input.GetMouseButton(0)) {
 			if (piece.name == "Knight" || piece.name == "Rook" || piece.name == "Bishop" || piece.name == "King" || piece.name == "Pawn" || piece.name == "Queen"){
 				Debug.Log ("triggered");
@@ -34,13 +35,14 @@ public class Square : MonoBehaviour {
 				piece.transform.position = new Vector3 (this.transform.position.x, piece.transform.position.y, this.transform.position.z);
 				piece.GetComponent<Pieces> ().setSquare (this.ColID, this.RowID);
 				piece.GetComponent<Pieces> ().startPos = piece.transform.position;
+				hasPiece = true;
 			} else {
 				piece.transform.position = piece.GetComponent<Pieces> ().startPos;
 			}
 		}
 	}
 
-	bool ValidMove(Collider piece) {
+	public bool ValidMove(Collider piece) {
 
 		if (piece.name == "King") {
 			// one square each direction, inc. diag.

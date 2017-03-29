@@ -46,7 +46,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\DynamicScrollView\test.cs" />
      <Compile Include="Assets\Scripts\ChessBoard.cs" />
      <Compile Include="Assets\Scripts\LogScript.cs" />
      <Compile Include="Assets\Scripts\Pieces.cs" />
